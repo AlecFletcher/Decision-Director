@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Decision Director", "Decision Director\Decision Director.csproj", "{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
+		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Debug|ARM64.Build.0 = Debug|ARM64
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Release|ARM64.ActiveCfg = Release|ARM64
+		{D7707F26-F1EE-4100-AB98-DA47A6F72A0C}.Release|ARM64.Build.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {638E5EDF-C250-4322-ABC3-C9364A11918B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.AddEditPlayer"
+             Title="AddEditPlayer"
+             Loaded="ContentPage_Loaded"
+             xmlns:models="clr-namespace:Decision_Director.Models"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Margin="-5,-5"
+        BackgroundColor="{StaticResource SecondaryDarkText}">
+        <Grid Padding="20,0" BackgroundColor="{StaticResource SecondaryDarkText}" x:Name="PlayerGrid" x:DataType="models:Player" ColumnDefinitions="150, 2*, 50, 50" RowDefinitions="60,60" Margin="10">
+            <Label Grid.Column="0" Grid.Row="0" Text="Name:"></Label>
+            <Entry TextColor="{StaticResource PrimaryDarkText}" x:Name="player_name_Entry" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Text="{Binding Name}" HorizontalTextAlignment="Start"></Entry>
+            <Label Grid.Column="0" Grid.Row="1" Text="Is present:"></Label>
+            <CheckBox Grid.Row="1" Grid.Column="2" x:Name="player_present_Checkbox" IsChecked="{Binding IsPresent}"></CheckBox>
+        </Grid>
+
+        <Button x:Name="save_changes_button" Clicked="save_changes_button_Clicked" Text="Save Player Changes" FontSize="25" HeightRequest="120" WidthRequest="300"></Button>
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.RestaurantList"
+             Title="RestaurantList"             
+             xmlns:models="clr-namespace:Decision_Director.Models"
+             Appearing="ContentPage_Appearing"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="plus_symbol.png" Clicked="add_restaurant_clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Border
+        Margin="-5,-5"
+        BackgroundColor="{StaticResource SecondaryDarkText}">
+        <Grid BackgroundColor="{StaticResource SecondaryDarkText}" x:Name="PlayerGrid" x:DataType="models:Restaurant" Margin="10">
+            <ScrollView>
+                <CollectionView
+                    x:Name="restaurant_collectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border 
+                                StrokeShape="RoundRectangle 10,10,10,10"
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Margin="2"
+                                Padding="5">
+                                <Grid Padding="5,0" RowDefinitions="60,60,60" ColumnDefinitions="2*, 6*, 1*, 1*">
+                                    <Label Margin="5,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" Text="{Binding Name, StringFormat='Name: {0}'}"></Label>
+                                    <Label Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" Text="{Binding Genre, StringFormat='Genre: {0}'}"></Label>
+                                    <Label Margin="5,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" Text="{Binding Type, StringFormat='Type: {0}'}"></Label>
+                                    <ImageButton Grid.Row="0" Grid.Column="2" Source="edit_pencil.png" BindingContext="{Binding}" Clicked="edit_restaurant_button_clicked"></ImageButton>
+                                    <ImageButton Grid.Row="0" Grid.Column="3" Source="trashcan.png" BindingContext="{Binding}" Clicked="delete_restaurant_button_clicked"></ImageButton>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </Grid>
+    </Border>
+
+</ContentPage>

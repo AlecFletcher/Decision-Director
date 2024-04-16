@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.PlayerPicker"
+             Title="Player Selector"             
+             xmlns:models="clr-namespace:Decision_Director.Models"
+             BackgroundColor="{StaticResource SecondaryDarkText}"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}"
+             Loaded="ContentPage_Loaded"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#2b310a"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="edit_pencil.png" Clicked="edit_player_clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid RowDefinitions="4*, 3*, 4*" ColumnDefinitions="*">
+        <Grid
+            Grid.Column="0" Grid.Row="0"
+            ColumnDefinitions="1*,10*,1*">
+            <Label Grid.Column="1" LineBreakMode="WordWrap" x:Name="selected_player_label" FontSize="42" HorizontalOptions="Center" VerticalOptions="Start" VerticalTextAlignment="Center" Text="..."></Label>
+        </Grid>
+        <Button Grid.Row="1" FontSize="40" LineBreakMode="WordWrap"  Margin="20,50,20,0" HeightRequest="120" Text="Who is going first?" Clicked="find_player_button_clicked"></Button>
+
+        <ScrollView
+            Grid.Row="2"
+            Margin="20">
+            <CollectionView x:Name="player_collection_view">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10" ColumnDefinitions="3*, 1*, 1*">
+                            <Label Grid.Column="0" Text="{Binding Name, StringFormat='Name: {0}'}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                            <Label Grid.Column="1" Text="Is present" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding IsPresent}" HorizontalOptions="Start" VerticalOptions="Center" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

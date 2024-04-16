@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.AddEditRestaurant"
+             Title="AddEditRestaurant"
+             Appearing="ContentPage_Appearing"             
+             xmlns:models="clr-namespace:Decision_Director.Models"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"/>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Margin="-5,-5"
+        BackgroundColor="{StaticResource SecondaryDarkText}">
+        <Grid Padding="20,0" BackgroundColor="{StaticResource SecondaryDarkText}" x:Name="RestaurantGrid" x:DataType="models:Restaurant" ColumnDefinitions="200, 2*" RowDefinitions="60,60,60" Margin="10">
+            <Label Grid.Column="0" Grid.Row="0" Text="Name:"></Label>
+            <Entry x:Name="restaurant_name_Entry" TextColor="{StaticResource PrimaryDarkText}" Grid.Column="1" Grid.ColumnSpan="0" Grid.Row="0" Text="{Binding Name}" HorizontalTextAlignment="Start"></Entry>
+            <Label Grid.Column="0" Grid.Row="1" Text="Restaurant Type:"></Label>
+            <Picker Grid.Row="1" Grid.Column="1" x:Name="restaurant_type_picker" SelectedItem="{Binding Type}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                <Picker.Items>
+                    <x:String>Fast Food</x:String>
+                    <x:String>Dine In</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Grid.Column="0" Grid.Row="2" Text="Genre:"></Label>
+            <Picker Grid.Row="2" Grid.Column="1" x:Name="restaurant_genre_picker" SelectedItem="{Binding Genre}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                <Picker.Items>
+                    <x:String>Mexican</x:String>
+                    <x:String>American</x:String>
+                    <x:String>Italian</x:String>
+                    <x:String>Chinese</x:String>
+                    <x:String>Thai</x:String>
+                    <x:String>French</x:String>
+                    <x:String>Indian</x:String>
+                </Picker.Items>
+            </Picker>
+
+        </Grid>
+
+        <Button x:Name="save_restaurant_button" Clicked="save_changes_button_Clicked" Text="Save Restaurant" FontSize="25" HeightRequest="120" WidthRequest="300"></Button>
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.RestaurantPicker"
+             Title="Restaurant Randomizer"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}"
+             Loaded="ContentPage_Loaded">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#2b310a"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="edit_pencil.png" Clicked="edit_restaurantList_clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid
+        BackgroundColor="{StaticResource SecondaryDarkText}"
+        ColumnDefinitions="1*,5*, 5*,1*"
+        RowDefinitions="200,300,60,60">
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" LineBreakMode="WordWrap" x:Name="selected_restaurant_label" FontSize="42" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center" Text="..."></Label>
+
+        <Button HorizontalOptions="Center" Grid.Column="1" Grid.ColumnSpan="2" LineBreakMode="WordWrap" Grid.Row="1" FontSize="40" Margin="20,50,20,0" HeightRequest="120" Text="Where should I eat?" Clicked="find_restaurant_button_clicked"></Button>
+        <Label FontSize="30" Grid.Column="1" Grid.Row="2" Text="Type: " VerticalOptions="Center"></Label>
+        <Picker FontSize="30" x:Name="restaurant_type_picker" Grid.Column="2" Grid.Row="2" VerticalOptions="Center" TextColor="{StaticResource PrimaryDarkText}" SelectedIndex="1" HorizontalTextAlignment="Center">
+            <Picker.Items>
+                <x:String>Any</x:String>
+                <x:String>Fast Food</x:String>
+                <x:String>Dine In</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label FontSize="30" Grid.Column="1" Grid.Row="3" Text="Genre: " VerticalOptions="Center"></Label>
+        <Picker FontSize="30" x:Name="restaurant_genre_picker" Grid.Column="2" Grid.Row="3" VerticalOptions="Center" SelectedIndex="0" HorizontalTextAlignment="Center" TextColor="{StaticResource PrimaryDarkText}">
+            <Picker.Items>
+                <x:String>Any</x:String>
+                <x:String>Mexican</x:String>
+                <x:String>American</x:String>
+                <x:String>Italian</x:String>
+                <x:String>Chinese</x:String>
+                <x:String>Thai</x:String>
+                <x:String>French</x:String>
+                <x:String>Indian</x:String>
+            </Picker.Items>
+        </Picker>
+    </Grid>
+</ContentPage>

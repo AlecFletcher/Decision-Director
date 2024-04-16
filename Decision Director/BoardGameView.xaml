@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.BoardGameView"
+             Title=""
+             BackgroundColor="{StaticResource SecondaryDarkText}"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#2b310a"></Setter>
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="edit_pencil.png" Clicked="edit_game_button_clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label FontSize="Title" HorizontalOptions="Center" Text="Your game is:"></Label>
+        <Label x:Name="selected_game_Label" Margin="0,20,0,0" FontSize="50" HorizontalOptions="Center" Text="..."></Label>
+        <Grid Padding="20"  Margin="0,80,0,0" ColumnDefinitions="1*,3*,1*" RowDefinitions="1*,1*,1*,1*">
+            <Label FontSize="Large" Text="How many people are playing?" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" HorizontalOptions="Center"></Label>
+            <Button Margin="0,40,0,0" MaximumWidthRequest="100" FontSize="35" Grid.Row="1" Grid.Column="1" Text="+" Clicked="plus_button_clicked"></Button>
+            <Label x:Name="Num_players_label" FontSize="40" Grid.Row="2" Grid.Column="1" Text="2" HorizontalTextAlignment="Center" HorizontalOptions="Center"></Label>
+            <Button MaximumWidthRequest="100" FontSize="35" Grid.Row="3" Grid.Column="1" Text="-" Clicked="minus_button_clicked"></Button>
+        </Grid>
+        <Button FontSize="40"  Margin="20,50,20,0" HeightRequest="80" Text="Find me a game!" Clicked="FindGameButton_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Decision_Director.GameListView"
+             Title="Games List"
+             xmlns:models="clr-namespace:Decision_Director.Models"
+             Loaded="ContentPage_Loaded"
+             Shell.BackgroundColor="{StaticResource SecondaryDarkText}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="plus_symbol.png" Clicked="AddGame_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="HeyComic"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView
+        BackgroundColor="{StaticResource SecondaryDarkText}">
+        <VerticalStackLayout>
+            <CollectionView x:Name="GameCollectionView" x:DataType="models:Game">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="5"
+                            StrokeShape="RoundRectangle 10,10,10,10"
+                            Padding="10"
+                            BackgroundColor="{StaticResource PrimaryDark}">
+                            <Grid ColumnDefinitions="3*,2*,1*,1*" RowDefinitions="30,30">
+                                <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalTextAlignment="Center" Text="{Binding GameName}" FontSize="Medium" FontAttributes="Bold" LineBreakMode="TailTruncation"></Label>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding MinPlayers, StringFormat='Min Players: {0}'}"></Label>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding MaxPlayers, StringFormat='Max Players: {0}'}"></Label>
+                                <ImageButton Margin="5" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Source="edit_pencil.png" Clicked="EditButton_Clicked"></ImageButton>
+                                <ImageButton Margin="5" Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Source="trashcan.png" Clicked="DeleteButton_Clicked"></ImageButton>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>
